@@ -1,0 +1,30 @@
+---
+classes:
+  - 'common::foo'   # yes
+  - '::common::foo' # yes
+  - common::foo     # yes
+  - common          # yes
+  - 'common'        # yes
+  - 'commonly::foo' # no
+  - commonly::foo   # no
+  - commonly        # no
+  - 'commonly'      # no
+  - uncommon        # no
+  - 'uncommon'      # no
+  - 'uncommon::foo' # no
+  - uncommon::foo   # no
+  - foo::common     # no
+  - 'foo::common'   # no
+
+common::foo:   foo  # yes
+'common::foo': foo  # yes
+"common::foo": foo  # yes
+::common::foo:   foo  # yes
+'::common::foo': foo  # yes
+"::common::foo": foo  # yes
+::foo::common:    foo  # no
+'::foo::common':  foo  # no
+"::foo::common":  foo  # no
+foo::common:    foo  # no
+'foo::common':  foo  # no
+"foo::common":  foo  # no
